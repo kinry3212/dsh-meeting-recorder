@@ -1,0 +1,33 @@
+# e2e 测试覆盖层（mr-test profile 专用）
+# 1) 把本地 workbuddy 通道挂上（桌面 profile 用的是同一套）
+# 2) 默认模型切到 workbuddy/deepseek-v4.1-flash，避免 headless 模板自带的 deepseek-official 缺 key
+# 3) 打开会议记录插件，去抖归零，存到项目目录
+- insert:
+    - id: llm-pi-ai
+      name: '@deepseek-ai/dsh-llm-pi-ai'
+      config:
+        providers:
+          workbuddy:
+            apiKeyEnv: WORKBUDDY_API_KEY
+            api: openai-responses
+            baseURL: http://127.0.0.1:8788/v1
+            displayName: wb-ai
+            models:
+              - id: deepseek-v4.1-flash
+                name: Deepseek-V4.1-Flash
+                contextWindow: 1000000
+                maxTokens: 128000
+                input:
+                  - text
+- id: agent-default-model
+  config:
+    provider: workbuddy
+    model: deepseek-v4.1-flash
+- id: meeting-recorder
+  config:
+    autoEnable: true
+    debounceMs: 0
+    debug: true
+    storageDir: D:/Claude/projects/20261019-dsh-meeting-recorder/test-store
+    maxOutputTokens: 8000
+    timeoutMs: 180000

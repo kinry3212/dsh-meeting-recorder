@@ -1,0 +1,7 @@
+# dsh-meeting-recorder bundle patch
+#
+# 安装（把本包放进 profile 的 node_modules 并在 dsh.profile.bundles 登记）后，
+# 这一行把插件的 host 半边挂进 Loader 树。行名是**包名**，不是文件路径。
+- insert:
+    - id: meeting-recorder
+      name: 'dsh-meeting-recorder'
