@@ -15,7 +15,7 @@ A host-side plugin for DSH: keeps a browsable, incrementally updated meeting rec
 
 ## 安装 / Install
 
-在 DSH 插件市场里搜索 `dsh-meeting-recorder` 安装（推荐）。
+在 DSH 插件市场里搜索 `dsh-meeting-recorder` 安装（市场收录后可用）。
 
 命令行安装到某个 profile：
 
